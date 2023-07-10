@@ -1,0 +1,76 @@
+"use client";
+import Image from "next/image";
+import { HiSearch, Hibell, Hichat } from "react-icons/hi";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useEffect } from "react";
+import { app } from "@/components/firebase/firebaseconfig";
+const Header = () => {
+  const { data: session } = useSession();
+  // console.log(session);
+  const db = getFirestore(app);
+
+  useEffect(() => {
+    saveUserInfo();
+  }, [session]);
+  const saveUserInfo = async () => {
+    if (session?.user) {
+      await setDoc(doc(db, "user", session.user.email), {
+        userName: session.user.name,
+        email: session.user.email,
+        userImage: session.user.image,
+      });
+    }
+  };
+  return (
+    <div className="flex">
+      <div className="flex  items-center text-black">
+        <Image
+          src="/pinterest.png"
+          alt="pinterest"
+          width={70}
+          height={70}
+          className="hover:bg-gray-400 p-2 rounded-full cursor-pointer"
+        />
+        <h2 className="font-semibold text-[21px]">Pinterest</h2>
+      </div>
+      <div className="flex ml-[30em]">
+        <div className="flex flex-row gap-5  px-6 items-center ">
+          <button className="bg-black text-white  hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer rounded-md px-7 py-2">
+            Home
+          </button>
+          <button className="bg-black text-white hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer  rounded-md px-7 py-2">
+            Create
+          </button>
+        </div>
+        <div className="flex p-3 gap-3">
+          <div className="flex bg-gray-200 p-2 gap-3 items-center rounded-md">
+            <HiSearch className="text-[25px]" />
+
+            <input
+              type="text"
+              placeholder="search"
+              className="bg-transparent outline-none w-[25rem] "
+            />
+          </div>
+
+          {session?.user ? (
+            <Image
+              src={session?.user?.image}
+              alt="men"
+              width={60}
+              height={60}
+              className="rounded-full"
+            />
+          ) : (
+            <button className="font-semibold p-2 " onClick={() => signIn()}>
+              Login
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Header;
