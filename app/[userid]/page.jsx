@@ -1,5 +1,6 @@
 "use client";
 import { app } from "@/components/firebase/firebaseconfig";
+import ProfileInfo from "@/components/profileinfo/profileinfo";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import React, { useEffect } from "react";
 
@@ -23,7 +24,11 @@ const Profile = ({ params }) => {
       console.log("No such document!");
     }
   };
-  return <div>profile</div>;
+  return (
+    <div>
+      <ProfileInfo />
+    </div>
+  );
 };
 
 export default Profile;
