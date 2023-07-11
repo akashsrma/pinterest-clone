@@ -24,6 +24,14 @@ const Header = () => {
       });
     }
   };
+
+  const onCreateClick = () => {
+    if (session) {
+      router.push("/pin-builder");
+    } else {
+      signIn();
+    }
+  };
   return (
     <div className="flex">
       <div className="flex  items-center text-black">
@@ -32,6 +40,7 @@ const Header = () => {
           alt="pinterest"
           width={70}
           height={70}
+          onClick={() => router.push("/")}
           className="hover:bg-gray-400 p-2 rounded-full cursor-pointer"
         />
         <h2 className="font-semibold text-[21px]">Pinterest</h2>
@@ -43,7 +52,7 @@ const Header = () => {
           </button>
           <button
             className="bg-black text-white hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer  rounded-md px-7 py-2"
-            onClick={() => router.push("/pin-builder")}
+            onClick={() => onCreateClick()}
           >
             Create
           </button>
