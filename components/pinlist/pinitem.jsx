@@ -4,19 +4,17 @@ import Image from "next/image";
 const Pinitem = ({ pin }) => {
   const { title, id, image, desc, link, userImage, email, userName } = pin;
   return (
-    <div className="bg-orange-400 px-2 py-4 rounded-md">
+    <div className=" hover:bg-gray-200 hover:shadow-lg hover:shadow-gray-500 px-2 py-4 rounded-md">
       <div className="rounded-lg items-center flex  justify-center">
         <Image src={image} alt={title} width={400} height={400} />
       </div>
       <div className="text-[18px] ">
-        <h2 className="ml-[11rem] font-semibold text-[21px] text-white">
-          {title}
-        </h2>
+        <h2 className="ml-[11rem] font-semibold text-[21px]">{title}</h2>
         <h2 className="p-3">
-          Desc: <span className="text-white">{desc}</span>
+          Desc: <span>{desc}</span>
         </h2>
       </div>
-      <div className="flex gap-3 text-white">
+      <div className="flex gap-3 ">
         <p>
           <Image
             src={userImage}
