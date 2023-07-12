@@ -45,12 +45,9 @@ const Header = () => {
         />
         <h2 className="font-semibold text-[21px]">Pinterest</h2>
       </div>
-      <div className="flex ml-[30em]">
+      <div className="flex ml-[18rem]">
         <div className="flex flex-row gap-5  px-6 items-center ">
-          <button
-            className="bg-black text-white  hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer rounded-md px-7 py-2"
-            onClick={() => router.push("/")}
-          >
+          <button className="bg-black text-white  hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer rounded-md px-7 py-2">
             Home
           </button>
           <button
@@ -81,7 +78,10 @@ const Header = () => {
               className="rounded-full"
             />
           ) : (
-            <button className="font-semibold p-2 " onClick={() => signIn()}>
+            <button
+              className="font-semibold p-2 bg-black text-white rounded-md  hover:bg-gray-700"
+              onClick={() => signIn()}
+            >
               Login
             </button>
           )}
