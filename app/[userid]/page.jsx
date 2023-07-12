@@ -2,7 +2,7 @@
 import { app } from "@/components/firebase/firebaseconfig";
 import Pinlist from "@/components/pinlist/pinlist";
 import ProfileInfo from "@/components/profileinfo/profileinfo";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   collection,
   doc,
