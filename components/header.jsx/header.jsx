@@ -47,7 +47,10 @@ const Header = () => {
       </div>
       <div className="flex ml-[20rem]">
         <div className="flex flex-row gap-5  px-6 items-center ">
-          <button className="bg-black text-white  hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer rounded-md px-7 py-2">
+          <button
+            className="bg-black text-white  hover:bg-white hover:text-black hover:font-semibold hover:cursor-pointer rounded-md px-7 py-2"
+            onClick={() => router.push("/")}
+          >
             Home
           </button>
           <button
