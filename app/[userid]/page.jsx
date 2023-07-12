@@ -43,6 +43,7 @@ const Profile = ({ params }) => {
     }
   }, [profileInfo]);
   const getuserPins = async () => {
+    // console.log(profileInfo.email);
     const q = query(
       collection(db, "pinterest"),
       where("email", "==", profileInfo?.email)
@@ -51,7 +52,7 @@ const Profile = ({ params }) => {
     querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
       // console.log(doc.id, " => ", doc.data());
-      setListOfPins((listofPins) => [...listofPins, doc.data()]);
+      setListOfPins((prev) => [...prev, doc.data()]);
     });
   };
   return (

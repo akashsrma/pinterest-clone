@@ -91,7 +91,7 @@ const PinBuilder = () => {
           />
         </div>
         <div className="flex flex-col">
-          <label className="font-semibold">Add a estination Link</label>
+          <label className="font-semibold">Add a Destination Link</label>
           <textarea
             className="bg-gray-300 w-[18rem] border-none rounded-md"
             onChange={(e) => setLink(e.target.value)}
